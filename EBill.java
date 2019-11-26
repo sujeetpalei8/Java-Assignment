@@ -1,11 +1,8 @@
 import java.util.Scanner;
-public class EBill{    
- public static void main(String args[]){  
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the number of units");
-	int unit=sc.nextInt();
-	int cost=0;
-	if(unit<0)
+public class EBill{  
+   private int cost=0;
+   public void CalcCost(int unit){
+       if(unit<0)
 	{
 		System.out.println("Invalid Input");
 	}
@@ -20,8 +17,18 @@ public class EBill{
 	{
 		cost=2500+((unit-300)*20);
 	}
+   }
+   public int PrintCost(){
+       return cost;
+   }
 	
-	System.out.println("Final Bill: "+cost);
+ public static void main(String args[]){  
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the number of units");
+	int unit=sc.nextInt();
+	EBill obj=new EBill();
+	obj.CalcCost(unit);
+	System.out.println("Final Bill: "+obj.PrintCost());
 	  
 }    
 }   
